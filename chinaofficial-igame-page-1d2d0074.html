@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f5f2;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #2e2b28;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fffefc;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border-radius: 28px;
+      padding: 2.8rem 2.2rem 3.2rem;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .page {
+        padding: 2rem 1.2rem 2.4rem;
+        border-radius: 20px;
+      }
+    }
+
+    /* 标题层级——杂志感 */
+    .hero {
+      text-align: center;
+      margin-bottom: 3.2rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid #e8e3dc;
+    }
+
+    .hero-sup {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b0a89e;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      color: #1f1c18;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      font-weight: 350;
+      color: #7f766b;
+    }
+
+    .hero p {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #6f675e;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 三段自然介绍 (杂志正文) */
+    .story {
+      margin: 2.8rem 0;
+    }
+
+    .story section {
+      margin-bottom: 2.6rem;
+    }
+
+    .story section:last-child {
+      margin-bottom: 0;
+    }
+
+    .story h2 {
+      font-size: 1.2rem;
+      font-weight: 460;
+      color: #3d3832;
+      margin-bottom: 0.8rem;
+      padding-left: 0.4rem;
+      border-left: 3px solid #d6cfc4;
+      padding-left: 0.8rem;
+    }
+
+    .story p {
+      font-size: 1rem;
+      color: #3d3731;
+      margin-bottom: 1rem;
+    }
+
+    .story p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story .subnote {
+      background: #f3f0eb;
+      padding: 1.2rem 1.4rem;
+      border-radius: 20px;
+      margin-top: 1.6rem;
+      font-size: 0.92rem;
+      color: #4f4840;
+    }
+
+    /* 特色卡片——极简 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2rem 0 1.2rem;
+    }
+
+    @media (max-width: 460px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-item {
+      background: #faf8f5;
+      border-radius: 20px;
+      padding: 1.4rem 1.2rem;
+      transition: background 0.2s;
+    }
+
+    .feature-item:hover {
+      background: #f2eee9;
+    }
+
+    .feature-item h3 {
+      font-size: 1rem;
+      font-weight: 480;
+      color: #2b2722;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: #615a51;
+    }
+
+    /* FAQ 摘要 */
+    .faq-note {
+      margin-top: 2.8rem;
+      border-top: 1px solid #ebe6df;
+      padding-top: 1.8rem;
+    }
+
+    .faq-note details {
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-note summary {
+      font-weight: 460;
+      color: #2f2a25;
+      cursor: default;
+      padding: 0.3rem 0;
+    }
+
+    .faq-note details p {
+      color: #5c554b;
+      margin: 0.4rem 0 0.8rem 1.2rem;
+      padding-left: 0.6rem;
+      border-left: 1px solid #d7d0c7;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid #e3ddd5;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #726b61;
+    }
+
+    .footer-note a {
+      color: #3b352e;
+      text-decoration: none;
+      border-bottom: 1px solid #cbc2b7;
+      font-weight: 450;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #7f6f5e;
+      color: #1f1a15;
+    }
+
+    .footer-extra {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #9f968b;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ece7e0;
+      margin: 1.8rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+      <span class="hero-sup">专题 · 稳定入口</span>
+      <h1>爱游戏 <span>· 日常陪伴</span></h1>
+      <p>一个让游戏回归生活本味的安静角落，没有弹窗，没有喧嚣，只有想玩的时刻。</p>
+    </div>
+
+    <!-- 背景说明 + 三段自然介绍 -->
+    <div class="story">
+      <section>
+        <h2>从一次偶然开始</h2>
+        <p>最初只是想在周末找一个干净的地方下载老游戏。翻了很多页面，要么捆绑安装，要么注册会员。后来朋友提起 <a href="https://chinaofficial-igame.com">爱游戏</a>，说上面资源整理得利落。试了试，果真如此——没有多余推荐，没有浮层广告，像一个有人情味的小型游戏库。</p>
+      </section>
+
+      <section>
+        <h2>为什么能一直用下去</h2>
+        <p>用了大半年，最大的感受是页面一直很稳定。不会突然变样，也没有隐藏的跳转。每个游戏都附了一段简短的说明，像是编辑手写的卡片。偶尔上去翻翻，总能找到一些冷门但有质感的作品。</p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3>目录清晰</h3>
+            <p>分类不花哨，按照类型和年代排列，找东西不费力。</p>
+          </div>
+          <div class="feature-item">
+            <h3>信息克制</h3>
+            <p>没有评分轰炸，没有弹窗，页面留白很多，读着舒服。</p>
+          </div>
+          <div class="feature-item">
+            <h3>长期维护</h3>
+            <p>每周都有小更新，修复链接或补充资料，像在经营一个书房。</p>
+          </div>
+          <div class="feature-item">
+            <h3>无会员体系</h3>
+            <p>不需要登录，不需要充值，打开就能看到内容。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>更适合慢慢逛</h2>
+        <p>如果你也厌倦了算法推荐和无限下拉，或许可以试试切换到 <a href="https://chinaofficial-igame.com">爱游戏</a> 的节奏。它不会追着你更新，也不会推送你不感兴趣的东西。每个游戏都安安静静地待在那里，等你真正想点开它。</p>
+        <div class="subnote">
+          <p>上周末我想找一个 2009 年的策略游戏，在别的地方搜到的都是失效链接，但在爱游戏居然还保留着完整的说明页和可用地址。那种感觉像是翻到一本旧杂志的合订本。</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- FAQ 摘要 (杂志式问答) -->
+    <div class="faq-note">
+      <details>
+        <summary>爱游戏需要注册账号吗？</summary>
+        <p>不需要。目前所有浏览和下载指引均无需注册或登录，直接访问即可使用。</p>
+      </details>
+      <details>
+        <summary>游戏资源都是免费的吗？</summary>
+        <p>站内收录的游戏均来自公开渠道或已授权分享，不设付费墙。部分游戏可能需要外部模拟器，页面会附带说明。</p>
+      </details>
+      <details>
+        <summary>如果链接失效怎么办？</summary>
+        <p>你可以通过页面底部的反馈方式告知维护者。通常 1-2 天内会更新替代链接，站内会保留历史记录。</p>
+      </details>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <p>把 <a href="https://chinaofficial-igame.com">爱游戏</a> 放在书签栏里，就像在书架上留一个熟悉的位置。</p>
+      <p class="footer-extra">每期更新 · 周末常翻翻 · 保持简单</p>
+    </div>
+  </div>
+</body>
+</html>
