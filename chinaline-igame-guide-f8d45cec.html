@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 再次相遇的导航页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafbfc;
+      font-family: -apple-system, "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+      color: #1e2b3c;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      padding: 28px 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e6edf4;
+    }
+
+    .site-name {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #1e2b3c;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4f6f8f;
+      font-size: 0.95rem;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #0d6b4b;
+    }
+
+    .nav-links a:first-child {
+      margin-left: 0;
+    }
+
+    /* hero 区域 */
+    .hero {
+      padding: 76px 0 56px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: #172530;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #5b6f82;
+      max-width: 580px;
+      margin: 0 auto 10px;
+    }
+
+    .hero .note {
+      font-size: 0.95rem;
+      color: #748a9c;
+      margin-top: 12px;
+    }
+
+    .hero .note a {
+      color: #0d6b4b;
+      text-decoration: none;
+      border-bottom: 1px dotted #b6cdc2;
+    }
+
+    .hero .note a:hover {
+      border-bottom-color: #0d6b4b;
+    }
+
+    /* 卡片场景模块 */
+    .scene-section {
+      padding: 40px 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+      color: #1e2b3c;
+      letter-spacing: 0.01em;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      padding: 28px 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef3f8;
+      transition: box-shadow 0.25s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .scene-card h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #1f3a4b;
+    }
+
+    .scene-card p {
+      font-size: 0.96rem;
+      color: #3d5568;
+      margin-bottom: 6px;
+    }
+
+    .scene-card .meta {
+      font-size: 0.88rem;
+      color: #7a8fa2;
+      margin-top: 8px;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      padding: 40px 0 20px;
+    }
+
+    .faq-item {
+      margin-bottom: 28px;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1e2b3c;
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      font-size: 0.95rem;
+      color: #4f6377;
+      padding-left: 4px;
+    }
+
+    .faq-a a {
+      color: #0d6b4b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 0.5px;
+    }
+
+    /* 收藏提示 */
+    .bookmark-note {
+      background: #f3f8fc;
+      border-radius: 24px;
+      padding: 28px 30px;
+      margin: 32px 0 40px;
+      text-align: center;
+      border: 1px solid #dee9f2;
+    }
+
+    .bookmark-note p {
+      font-size: 0.98rem;
+      color: #2e465b;
+    }
+
+    .bookmark-note .highlight {
+      display: inline-block;
+      background: #e0f0e8;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #0d5d41;
+      margin: 0 4px;
+    }
+
+    /* 底部 */
+    .footer {
+      padding: 40px 0 48px;
+      border-top: 1px solid #e6edf4;
+      font-size: 0.88rem;
+      color: #7a8fa2;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #4f6f8f;
+      text-decoration: none;
+      border-bottom: 1px solid #d5e0e9;
+    }
+
+    .footer a:hover {
+      color: #0d6b4b;
+      border-bottom-color: #0d6b4b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .top-nav {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        padding: 20px 0 12px;
+      }
+
+      .nav-links a {
+        margin-left: 16px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 48px 0 36px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .scene-card {
+        padding: 24px 20px;
+      }
+
+      .bookmark-note {
+        padding: 22px 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .nav-links a {
+        margin-left: 12px;
+        font-size: 0.85rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+      <span class="site-name">↻ 再次光临</span>
+      <div class="nav-links">
+        <a href="#">场景</a>
+        <a href="#">备忘</a>
+        <a href="#">说明</a>
+      </div>
+    </nav>
+
+    <!-- hero 区域：从再次访问切入 -->
+    <div class="hero">
+      <h1>再次找到这里</h1>
+      <p class="sub">
+        有时候，我们会回到一个熟悉的地方。也许是收藏夹里的某个角落，也许是记忆中的一行地址。<br>
+        如果你又一次来到了<a href="https://chinaline-igame.com">爱游戏</a>，那这里依旧安静如初。
+      </p>
+      <p class="note">
+        无需特意记住什么，只需记得你曾来过。
+      </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <section class="scene-section">
+      <h2 class="section-title">三个常遇到的场景</h2>
+      <div class="scene-grid">
+        <div class="scene-card">
+          <h3>📋 想再确认一下</h3>
+          <p>你曾经浏览过一些内容，但不确定是否记对了。回到这里，就像翻开一本折角的书页，熟悉的段落还在原地。</p>
+          <p class="meta">场景 · 回顾</p>
+        </div>
+        <div class="scene-card">
+          <h3>🔖 想把它留住</h3>
+          <p>无论是收藏到浏览器，还是记在笔记里，<a href="https://chinaline-igame.com">爱游戏</a>都值得你留一个位置。下一次再想找时，不必费力搜索。</p>
+          <p class="meta">场景 · 收藏</p>
+        </div>
+        <div class="scene-card">
+          <h3>👀 偶尔回来看看</h3>
+          <p>有些地方不需要天天去，但每隔一阵子，就会想打开瞧一瞧。这里的变化很轻，但每次来都会有新的感受。</p>
+          <p class="meta">场景 · 持续关注</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 常见说明摘要 -->
+    <section class="faq-summary">
+      <h2 class="section-title">一些你可能想知道的</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">— 这里和之前一样吗？</div>
+        <div class="faq-a">大体如故。如果你有一阵子没来，会发现结构和体验依然延续着以前的风格。任何重要更新都会在站内有提示。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">— 我需要注册或登录吗？</div>
+        <div class="faq-a">不需要。访问 <a href="https://chinaline-igame.com">爱游戏</a> 不需要任何账户，就像走进一间安静的阅览室，随时来，随时走。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">— 怎样才能不错过变化？</div>
+        <div class="faq-a">最直接的方式就是把它收藏起来。偶尔点开，自然会看到。另外也可以关注相关渠道的动态提醒。</div>
+      </div>
+    </section>
+
+    <!-- 收藏与持续关注提示 -->
+    <div class="bookmark-note">
+      <p>
+        <span class="highlight">收藏</span> 或在浏览器中为 
+        <a href="https://chinaline-igame.com" style="color:#0d6b4b;text-decoration:underline;text-underline-offset:2px;">爱游戏</a> 
+        添加一个标签，下次回来只需要一次点击。<br>
+        持续关注，不必刻意，自然而然。
+      </p>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+      <p>
+        <a href="https://chinaline-igame.com">爱游戏</a> · 安静等你回来
+      </p>
+      <p style="margin-top:10px; font-size:0.82rem; color:#9aadbe;">
+        再次访问 · 收藏 · 持续关注
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
