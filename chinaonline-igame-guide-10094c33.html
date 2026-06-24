@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafaf9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        /* ===== 头部 ===== */
+        .page-header {
+            padding: 2.8rem 0 1.8rem 0;
+            border-bottom: 1px solid #e9e9e7;
+            margin-bottom: 2rem;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #2a2a2a;
+        }
+
+        .site-title small {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #8c8c8c;
+            margin-left: 0.6rem;
+        }
+
+        /* ===== 正文卡片风格 ===== */
+        .hero {
+            padding: 1.2rem 0 0.8rem 0;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #4a4a4a;
+            margin-bottom: 1.8rem;
+        }
+
+        .section {
+            margin-bottom: 2.2rem;
+        }
+
+        .section h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 0.7rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #ebebea;
+        }
+
+        .section p,
+        .section li {
+            font-size: 0.95rem;
+            color: #3a3a3a;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.1rem;
+            color: #909090;
+            font-weight: 700;
+        }
+
+        /* 亮点卡片 — 极简留白 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 0.8rem 0 0.2rem 0;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border-radius: 0;
+            padding: 1rem 1.2rem;
+            flex: 1 0 200px;
+            border: 1px solid #efefed;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .feature-item .num {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #b0b0ae;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #2c2c2c;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #5a5a5a;
+        }
+
+        /* 使用建议列表 */
+        .usage-list {
+            background: #f6f6f4;
+            padding: 1.2rem 1.4rem;
+            border-left: 3px solid #cacac6;
+            margin: 1rem 0;
+        }
+
+        .usage-list p {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 提示框 */
+        .note-box {
+            background: #f3f2f0;
+            padding: 1.2rem 1.4rem;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+            color: #3e3e3e;
+            border-radius: 0;
+            border: 1px solid #e3e3e0;
+        }
+
+        .note-box strong {
+            color: #1f1f1f;
+            font-weight: 500;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #222;
+        }
+
+        .faq-item .a {
+            color: #555;
+            margin-top: 0.1rem;
+            padding-left: 0.2rem;
+        }
+
+        /* 链接样式 */
+        a {
+            color: #1f5c8a;
+            text-decoration: none;
+            border-bottom: 1px solid #d6d6d4;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #1f5c8a;
+        }
+
+        .inline-link {
+            border-bottom: 1px solid #cdcdca;
+        }
+
+        /* 页脚 */
+        .page-footer {
+            margin-top: 3rem;
+            padding: 1.8rem 0 2.5rem 0;
+            border-top: 1px solid #ecece9;
+            font-size: 0.8rem;
+            color: #8b8b89;
+            text-align: left;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .feature-item {
+                flex: 1 0 100%;
+            }
+            .site-title small {
+                display: block;
+                margin-left: 0;
+                margin-top: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="site-title">
+                爱游戏 <small>稳定入口 · 页面说明</small>
+            </div>
+        </header>
+
+        <main>
+            <!-- hero / 摘要 -->
+            <div class="hero">
+                <h1>关于 <a href="https://chinaonline-igame.com">爱游戏</a> 的一点说明</h1>
+                <p>如果你正在寻找一个可以持续了解游戏内容的网页，这里提供一份温和的介绍。我们从稳定入口和页面结构的角度，梳理了它的基本用途与特点，供你参考。</p>
+            </div>
+
+            <!-- 产品亮点 -->
+            <section class="section">
+                <h2>几个值得留意的特点</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="num">01</span>
+                        <h3>直接访问</h3>
+                        <p>无需额外注册或下载，通过浏览器即可打开页面。适合快速浏览信息。</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="num">02</span>
+                        <h3>内容聚焦</h3>
+                        <p>页面围绕游戏相关题材展开，信息组织比较清晰，有助于定位感兴趣的部分。</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="num">03</span>
+                        <h3>更新节奏</h3>
+                        <p>内容会保持更新，但并非实时动态。建议隔一段时间再看，可能有新变化。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 使用建议 -->
+            <section class="section">
+                <h2>使用建议</h2>
+                <div class="usage-list">
+                    <p>• 如果只是想大致了解游戏类资讯，可以将<a href="https://chinaonline-igame.com">爱游戏</a>作为一个参考入口。</p>
+                    <p>• 页面适合在桌面或移动设备上阅读，版式会自动调整，无需额外设置。</p>
+                    <p>• 若遇到加载缓慢或样式异常，可尝试刷新或更换网络环境，通常可以恢复正常。</p>
+                    <p>• 该站点不具备注册、留言或互动功能，仅供阅读和浏览。</p>
+                </div>
+            </section>
+
+            <!-- 常见场景 -->
+            <section class="section">
+                <h2>可能适合哪些场景</h2>
+                <ul>
+                    <li>平时兴趣偏重游戏内容，想找一个相对稳定的信息落脚点。</li>
+                    <li>不希望被频繁弹窗或推荐干扰，只想安静地阅读文字和列表。</li>
+                    <li>偶尔回顾之前看过的主题，页面结构保持一贯性，不易迷失。</li>
+                </ul>
+            </section>
+
+            <!-- 可信但克制的提示 -->
+            <div class="note-box">
+                <strong>一点提示：</strong> 本页面仅作介绍用途。网站本身由第三方维护，内容和可用性可能随时间调整。建议保持合理预期，不要依赖单一来源做重要判断。
+            </div>
+
+            <!-- FAQ 摘要 -->
+            <section class="section">
+                <h2>常见疑问摘要</h2>
+                <div class="faq-item">
+                    <div class="q">问：是否需要登录或付费？</div>
+                    <div class="a">答：不需要。打开 <a href="https://chinaonline-igame.com">爱游戏</a> 页面即可直接浏览，无需任何费用或账户。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">问：网页是否包含下载内容？</div>
+                    <div class="a">答：页面以文字和链接为主，不提供软件或文件下载，也不涉及安装包。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">问：如果页面打不开怎么办？</div>
+                    <div class="a">答：可先检查网络连接，或稍后再试。网站偶尔也会进行维护，耐心等待即可。</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <p>本介绍页仅为信息参考，不隶属于该网站。请根据个人需要合理使用。</p>
+            <p style="margin-top:0.3rem;">最后更新 · 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
