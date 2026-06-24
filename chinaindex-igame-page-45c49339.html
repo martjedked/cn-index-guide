@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 探索游戏世界的温暖入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde8cd 0%, #f9d7b0 30%, #f3c796 70%, #ecb889 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #3d2b1a;
+        }
+
+        .card {
+            max-width: 840px;
+            width: 100%;
+            background: rgba(255, 251, 242, 0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            box-shadow: 0 20px 40px -10px rgba(120, 60, 30, 0.2), 0 8px 16px rgba(0,0,0,0.05);
+            padding: 2.8rem 2.4rem;
+            margin: 1rem 0 2rem 0;
+            transition: transform 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 2rem 1.4rem;
+                border-radius: 28px;
+            }
+            body {
+                padding: 1rem 0.8rem;
+            }
+        }
+
+        .hero-short {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #4e3520;
+            margin-bottom: 0.2rem;
+            line-height: 1.3;
+            border-left: 6px solid #d99f6b;
+            padding-left: 1.2rem;
+        }
+
+        .hero-short strong {
+            font-weight: 600;
+            color: #7b4f2a;
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            margin: 1.8rem 0 1.4rem 0;
+            color: #4b3622;
+        }
+
+        .lead a {
+            color: #8b5f37;
+            text-decoration: none;
+            font-weight: 500;
+            background: linear-gradient(to right, #eac29a, #eac29a) no-repeat left bottom / 0% 2px;
+            transition: background-size 0.25s ease;
+            padding-bottom: 1px;
+        }
+
+        .lead a:hover {
+            background-size: 100% 2px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.8rem 0 1.2rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #fcf5eb;
+            padding: 1.2rem 1.4rem;
+            border-radius: 28px;
+            box-shadow: inset 0 1px 3px rgba(255, 245, 225, 0.8), 0 4px 8px rgba(140, 80, 30, 0.06);
+            transition: all 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #fff8ef;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(160, 100, 45, 0.08);
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #653f24;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-item p {
+            font-size: 0.96rem;
+            color: #5f4632;
+        }
+
+        .scene-wrap {
+            margin: 2rem 0 1.4rem 0;
+            padding: 1.2rem 0;
+            border-top: 2px dashed #e4ceb4;
+            border-bottom: 2px dashed #e4ceb4;
+        }
+
+        .scene-wrap p {
+            margin-bottom: 0.8rem;
+        }
+
+        .scene-wrap p:last-child {
+            margin-bottom: 0;
+        }
+
+        .gentle-ending {
+            margin-top: 2rem;
+            padding: 1rem 1.2rem;
+            background: #f7efe4;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #4a3421;
+        }
+
+        .gentle-ending a {
+            color: #7a532f;
+            text-decoration: none;
+            border-bottom: 1px dotted #cbaa85;
+            transition: border-color 0.2s;
+        }
+
+        .gentle-ending a:hover {
+            border-bottom: 1px solid #7a532f;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 0.6rem 0;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eddccb;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4d3520;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::before {
+            content: "☁️";
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "🍃";
+        }
+
+        .faq-mini p {
+            padding: 0.5rem 0.2rem 0.2rem 1.2rem;
+            color: #553e2b;
+            font-size: 0.95rem;
+        }
+
+        .foot-note {
+            margin-top: 1.6rem;
+            font-size: 0.85rem;
+            color: #7c664f;
+            text-align: center;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ebd6c2;
+            margin: 1.4rem 0 0.4rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hero-short">
+            如果你恰好想找一个 <strong>温和、清晰</strong> 的游戏信息落脚点
+        </div>
+
+        <p class="lead">
+            你可能遇到过这样的情况：想快速了解某个游戏到底适不适合自己，或者想寻找一款契合当下心情的作品，但资讯铺天盖地，筛选起来反而让人疲倦。<br>
+            <a href="https://chinaindex-igame.com">爱游戏</a> 正是带着这样的初衷而存在——它不追求喧闹的排行与夸张的标题，而是把游戏介绍、玩家讨论和实用索引整理成干净的样子，让每个路过的人都能轻松找到自己需要的片段。
+        </p>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>📋 平实介绍</h3>
+                <p>每款游戏都有简明的内容概览和风格标签，帮你快速判断是否感兴趣。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔍 多维度分类</h3>
+                <p>按类型、氛围、平台等方向组织，让发现新游戏变成一件自然的事。</p>
+            </div>
+            <div class="feature-item">
+                <h3>💬 社区温度</h3>
+                <p>汇聚普通玩家的真实感受与讨论，少一些营销腔，多一些真诚分享。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🧭 常更常新</h3>
+                <p>内容持续补充和修订，努力保持信息的新鲜感与准确性。</p>
+            </div>
+        </div>
+
+        <div class="scene-wrap">
+            <p>🌿 也许你只是想在午休时浏览两篇游戏手记，或是寻找一款周末能和朋友一起玩的合作游戏；又或者你是一位刚接触某个系列的新人，想从头了解它的演变脉络——</p>
+            <p>在这些场景里，<a href="https://chinaindex-igame.com">爱游戏</a> 都愿意成为那个不太嘈杂、却足够贴心的参考角落。没有催促注册的弹窗，也没有刻意制造的紧迫感，只有信息本身和它原本该有的节奏。</p>
+        </div>
+
+        <div class="faq-mini">
+            <details>
+                <summary>在这里主要能找到什么类型的游戏？</summary>
+                <p>涵盖独立游戏、经典重制、中小型团队作品以及部分主流大作，侧重风格多样和可玩性，不局限于单一品类。</p>
+            </details>
+            <details>
+                <summary>内容更新频率如何？</summary>
+                <p>团队保持定期增补新游戏条目和玩家投稿，同时会修订已有信息，尽量避免过时或错误的内容。</p>
+            </details>
+            <details>
+                <summary>可以参与分享自己的游戏感受吗？</summary>
+                <p>当然。网站鼓励真诚的交流，你可以通过社区板块或投稿入口留下你的游玩心得，帮助其他玩家更立体地了解一款游戏。</p>
+            </details>
+        </div>
+
+        <div class="gentle-ending">
+            🌟 希望你在这里逛得自在。如果某个游戏介绍恰好帮你节省了一点时间，或是带来一份小小的惊喜，那便是 <a href="https://chinaindex-igame.com">爱游戏</a> 最想收到的回响。
+        </div>
+
+        <hr>
+        <div class="foot-note">
+            不必着急，游戏世界很大，我们可以慢慢看。
+        </div>
+    </div>
+</body>
+</html>
